@@ -320,7 +320,7 @@ export default {
     overflow: visible !important;
 
     &:not(.sliderRoadmap__slide--inactive) + .sliderRoadmap__slide--inactive .sliderRoadmap__slideLine--prev {
-      background: linear-gradient(45deg, #99e2b4, #469d89);
+      background: linear-gradient(45deg, $orange, $red);
     }
 
     &--inactive {
@@ -341,7 +341,7 @@ export default {
       }
 
       & + .sliderRoadmap__slide:not(.sliderRoadmap__slide--inactive) .sliderRoadmap__slideLine--prev {
-        background: linear-gradient(var(--direction), #99e2b4, #469d89);
+        background: linear-gradient(var(--direction), $red, $orange);
       }
 
       &:first-child {
@@ -361,14 +361,14 @@ export default {
       .sliderRoadmap__slideLine--prev {
         left: 0;
         width: 50%;
-        background: linear-gradient(var(--direction), transparent, var(--green));
+        background: linear-gradient(var(--direction), transparent, var(--red));
       }
     }
 
     &:nth-last-child(2) {
       .sliderRoadmap__slideLine--next {
         width: 50%;
-        background: linear-gradient(var(--direction), var(--green), transparent);
+        background: linear-gradient(var(--direction), var(--orange), transparent);
         opacity: 1;
       }
     }
@@ -403,7 +403,7 @@ export default {
       left: -40px;
       width: calc(100% + 80px);
       height: 100%;
-      background: linear-gradient(45deg, var(--green), var(--lightGreen));
+      background: linear-gradient(45deg, var(--red), var(--red));
       z-index: -2;
     }
 
