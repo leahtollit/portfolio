@@ -6,6 +6,7 @@
   <a
     v-else-if="type === 'download'"
     :href="href"
+    target="_blank"
     class="baseBtn baseBtn--download pos--rel align--center"
     @click="click">
     <p class="baseBtn__label fc--blue fs--16 ff--karla fw--400"><slot /></p>
