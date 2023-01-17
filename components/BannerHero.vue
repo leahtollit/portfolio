@@ -7,14 +7,6 @@
         I am a Manchester-based Front End Developer. I am a hardworking, passionate, and innovative individual who is
         always up for a challenge.
       </p>
-      <div class="bannerHero__buttonHolder">
-        <BaseBtn
-          @click.prevent="scrollToElement('#')"
-          class="baseBtn bannerHero__button baseBtn--inactive z--1"
-          :link="``"
-          >Hire Me
-        </BaseBtn>
-      </div>
     </div>
     <SideContact />
     <Flower class="bannerHero__flower pos--abs" />
@@ -71,17 +63,10 @@ export default {
 
   &__header span:nth-child(1),
   &__header span:nth-child(2),
-  &__text,
-  &__buttonHolder {
+  &__text {
     transform: translateY(-30px);
     opacity: 0;
     transition: transform 0.5s, opacity 0.5s;
-  }
-
-  &__scrollBtn {
-    opacity: 0;
-    transition: opacity 0.5s;
-    transition-delay: 4s;
   }
 
   &__container {
@@ -126,16 +111,10 @@ export default {
     font-family: $inconsolata;
   }
 
-  &__buttonHolder {
-    opacity: 0;
-    transition-delay: 3.5s;
-  }
-
   &.is-inview {
     .bannerHero__header span:nth-child(1),
     .bannerHero__header span:nth-child(2),
-    .bannerHero__text,
-    .bannerHero__buttonHolder {
+    .bannerHero__text {
       transform: translateY(0);
       opacity: 1;
     }
