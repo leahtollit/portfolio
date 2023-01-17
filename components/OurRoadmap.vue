@@ -431,7 +431,7 @@ export default {
     border-radius: 50%;
     width: 31px;
     height: 31px;
-    background: var(--green);
+    background: var(--orange);
 
     &::before {
       content: '';
@@ -440,14 +440,14 @@ export default {
       left: 50%;
       width: 1px;
       height: 108px;
-      background: var(--green);
+      background: var(--orange);
     }
   }
 
   &__slideLine {
     width: 50%;
     height: 1px;
-    background: var(--green);
+    background: var(--orange);
     z-index: -1;
 
     &--prev {
