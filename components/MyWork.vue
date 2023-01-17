@@ -4,14 +4,14 @@
 
     <div class="myWork__clients">
       <div v-for="(client, i) in work" :key="client + i" class="myWork__client pos--rel">
-        <img class="myWork__client-image pos--abs" :src="`/images/${client.image}.jpg`" alt="" />
+        <a :href="client.link" target="_blank" class="myWork__link">
+          <img class="myWork__client-image pos--abs" :src="`/images/${client.image}.jpg`" alt="" />
 
-        <div class="myWork__client-overlay pos--abs">
-          <a :href="client.link" target="_blank" class="myWork__link">
+          <div class="myWork__client-overlay pos--abs">
             <h3 class="myWork__text">{{ client.text }}</h3>
             <p class="myWork__role">{{ client.role }}</p>
-          </a>
-        </div>
+          </div>
+        </a>
       </div>
     </div>
   </section>
@@ -33,7 +33,7 @@ export default {
           role: 'Lead development'
         },
         {
-          image: 'edinburgh-streets',
+          image: 'campfire',
           link: 'https://campfire.co.uk/',
           text: 'Campfire',
           role: 'Lead development'
@@ -45,8 +45,7 @@ export default {
           role: 'Development'
         },
         {
-          image: 'derwent-lake',
-          link: 'derwent-lake',
+          image: 'ko_adobe-max',
           text: 'KO Adobe MAX',
           role: 'Development'
         },

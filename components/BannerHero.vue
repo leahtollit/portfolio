@@ -222,6 +222,8 @@ export default {
     }
     &__flower {
       width: 400px;
+      height: 400px;
+      top: 15%;
     }
     &__header {
       max-width: 100%;
@@ -256,12 +258,25 @@ export default {
 
 //----------------------------------------//
 
-// 400
-@include breakpoint(xxs) {
+// 500
+@include breakpoint(xs) {
   .bannerHero {
     &__flower {
-      width: 100%;
-      top: -15%;
+      width: 300px;
+      height: 300px;
+      top: 15%;
+    }
+  }
+}
+
+//----------------------------------------//
+
+// 400
+@include breakpoint(xs) {
+  .bannerHero {
+    &__flower {
+      width: 250px;
+      height: 250px;
     }
   }
 }
