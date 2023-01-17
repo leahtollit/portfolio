@@ -24,7 +24,12 @@
             >
           </li>
         </ul>
-        <BaseBtn class="baseBtn baseBtn--green globalHeader__button" :link="``">Resume</BaseBtn>
+        <BaseBtn
+          class="baseBtn baseBtn--download baseBtn--green globalHeader__button"
+          :type="`download`"
+          :href="`/leah-tollit-cv.pdf`"
+          >Resume</BaseBtn
+        >
       </div>
     </div>
   </header>

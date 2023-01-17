@@ -3,6 +3,14 @@
     <p class="baseBtn__label fc--blue fs--16 ff--karla fw--500"><slot /></p>
   </NuxtLink>
 
+  <a
+    v-else-if="type === 'download'"
+    :href="href"
+    class="baseBtn baseBtn--download pos--rel align--center"
+    @click="click">
+    <p class="baseBtn__label fc--blue fs--16 ff--karla fw--400"><slot /></p>
+  </a>
+
   <button v-else :to="to" class="baseBtn pos--rel align--center" @click="click">
     <p class="baseBtn__label fc--blue fs--16 ff--karla fw--400"><slot /></p>
   </button>
@@ -21,6 +29,10 @@ export default {
       default: ''
     },
     to: {
+      type: String,
+      default: ''
+    },
+    href: {
       type: String,
       default: ''
     }
