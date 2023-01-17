@@ -1,31 +1,25 @@
 <template>
   <section class="globalFooter pos--rel">
     <div class="globalFooter__container container">
-      <div class="globalFooter__socialsHolder flex justifyC--between alignI--center">
-        <NuxtLink to="/" class="globalFooter__logoHolder pos--rel">
-          <!-- <GlobalLogo class="globalFooter__logo pos--abs" /> -->
-        </NuxtLink>
-
-        <div class="globalFooter__socials flex justifyC--between alignI--center">
-          <a
-            href="https://twitter.com/_leahtollit"
-            class="globalFooter__socialItem fc--white ff--karla fs--18 fw--300"
-            target="_blank">
-            <IconTwitter class="globalFooter__icon globalFooter__icon--twitter" />
-          </a>
-          <a
-            ref="mailto:leahtollit@gmail.com"
-            class="globalFooter__socialItem fc--white ff--karla fs--18 fw--300"
-            target="_blank">
-            <IconEmail class="globalFooter__icon globalFooter__icon--email" />
-          </a>
-          <a
-            href="https://www.linkedin.com/in/leah-tollit-7aaa78172/"
-            class="globalFooter__socialItem fc--white ff--karla fs--18 fw--300"
-            target="_blank">
-            <IconLinkedin class="globalFooter__icon globalFooter__icon--linkedin" />
-          </a>
-        </div>
+      <div class="globalFooter__socials flex justifyC--center alignI--center">
+        <a
+          href="https://twitter.com/_leahtollit"
+          class="globalFooter__socialItem fc--white ff--karla fs--18 fw--300"
+          target="_blank">
+          <IconTwitter class="globalFooter__icon globalFooter__icon--twitter" />
+        </a>
+        <a
+          ref="mailto:leahtollit@gmail.com"
+          class="globalFooter__socialItem fc--white ff--karla fs--18 fw--300"
+          target="_blank">
+          <IconEmail class="globalFooter__icon globalFooter__icon--email" />
+        </a>
+        <a
+          href="https://www.linkedin.com/in/leah-tollit-7aaa78172/"
+          class="globalFooter__socialItem fc--white ff--karla fs--18 fw--300"
+          target="_blank">
+          <IconLinkedin class="globalFooter__icon globalFooter__icon--linkedin" />
+        </a>
       </div>
     </div>
   </section>
@@ -48,9 +42,7 @@ export default {
 
 <style lang="scss">
 .globalFooter {
-  padding: 58px 0 69px;
-  /* margin: 40px 0 0; */
-  background: $bg;
+  padding: 40px 0;
 
   &::before {
     content: '';
@@ -58,21 +50,17 @@ export default {
     display: inline-block;
     left: 0;
     top: 0;
-    background: rgba(255, 255, 255, 0.6);
+    background: $green;
     opacity: 0.4;
     height: 1px;
-    width: 100%;
+    width: calc(100% - 88px);
+    left: 50%;
+    transform: translateX(-50%);
   }
 
   &__credit {
     font-family: $karla;
     line-height: 30px;
-  }
-
-  &__logoHolder {
-    width: 219px;
-    height: 49px;
-    display: inline-block;
   }
 
   &__socialItem {
@@ -83,24 +71,51 @@ export default {
     }
 
     &:hover {
+      cursor: pointer;
       .globalFooter__icon {
-        fill: $green;
+        fill: $orange;
       }
     }
   }
 
   &__icon {
-    fill: $white;
+    fill: $green;
     transition: fill 0.3s ease;
   }
 }
-
+//----------------------------------------//
+// 960
+@include breakpoint(l) {
+  .globalFooter {
+    &__flower {
+      max-width: 350px;
+      height: 350px;
+    }
+  }
+}
+//----------------------------------------//
+// 750
+@include breakpoint(m) {
+  .globalFooter {
+    &__flower {
+      max-width: 300px;
+      height: 300px;
+    }
+  }
+}
 //----------------------------------------//
 
 // 600
 @include breakpoint(s) {
   .globalFooter {
     padding: 24px 0;
+
+    &__flower {
+      left: -10%;
+      bottom: -56%;
+      max-width: 250px;
+      height: 250px;
+    }
 
     &__logoHolder {
       margin-bottom: 20px;
@@ -119,6 +134,19 @@ export default {
       &:nth-last-of-type(1) {
         margin-right: 0px;
       }
+    }
+  }
+}
+
+//----------------------------------------//
+// 500
+@include breakpoint(xs) {
+  .globalFooter {
+    &__flower {
+      left: -20%;
+      bottom: -102%;
+      max-width: 200px;
+      height: 200px;
     }
   }
 }

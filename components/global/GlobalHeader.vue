@@ -1,23 +1,30 @@
 <template>
   <header class="globalHeader pos--fix z--max" :class="{ 'globalHeader--collapsed': collapsed }">
-    <div class="globalHeader__container container flex justifyC--between">
-      <a href="" class="globalHeader__logo">Logo</a>
+    <div class="globalHeader__container container flex justifyC--end">
       <div class="globalHeader__navItems flex alignI--center">
         <ul class="globalHeader__nav flex">
           <li class="globalHeader__navItem">
-            <a href="" @click.prevent="scrollToElement('#about')">01. <span>About</span></a>
+            <a class="globalHeader__navLink" href="" @click.prevent="scrollToElement('#work')"
+              >01. <span>My Work</span></a
+            >
           </li>
           <li class="globalHeader__navItem">
-            <a href="" @click.prevent="scrollToElement('#experience')">02. <span>Experience</span></a>
+            <a class="globalHeader__navLink" href="" @click.prevent="scrollToElement('#experience')"
+              >02. <span>Experience</span></a
+            >
           </li>
           <li class="globalHeader__navItem">
-            <a href="" @click.prevent="scrollToElement('#work')">03. <span>Work</span></a>
+            <a class="globalHeader__navLink" href="" @click.prevent="scrollToElement('#certifications')"
+              >03. <span>Certifications</span></a
+            >
           </li>
           <li class="globalHeader__navItem">
-            <a href="" @click.prevent="scrollToElement('#contact')">04. <span>Contact</span></a>
+            <a class="globalHeader__navLink" href="" @click.prevent="scrollToElement('#hobbies')"
+              >04. <span>Hobbies</span></a
+            >
           </li>
         </ul>
-        <BaseBtn class="baseBtn globalHeader__button" :link="``">Resume</BaseBtn>
+        <BaseBtn class="baseBtn baseBtn--green globalHeader__button" :link="``">Resume</BaseBtn>
       </div>
     </div>
   </header>
@@ -65,7 +72,27 @@ export default {
 
   &--collapsed {
     padding: 21px 0;
-    background: $bg;
+    background: $green;
+
+    .globalHeader__navItem {
+      color: $white;
+    }
+
+    .globalHeader__navLink::after {
+      background: $white;
+    }
+
+    .baseBtn--green {
+      border: 1px solid white;
+
+      &:hover {
+        background: hsla(180, 91%, 87%, 0.3);
+      }
+
+      .baseBtn__label {
+        color: $white;
+      }
+    }
   }
 
   &__navItem {
@@ -77,13 +104,8 @@ export default {
     line-height: 16.9px;
     font-weight: 500;
     font-family: $karla;
-    color: white;
-
-    &:hover {
-      span {
-        color: $green;
-      }
-    }
+    color: $greenDark;
+    transition: color 0.3s ease;
 
     &:nth-last-of-type(1) {
       margin-right: 0;
@@ -91,6 +113,27 @@ export default {
   }
   span {
     transition: color 0.3s ease;
+  }
+
+  &__navLink {
+    position: relative;
+
+    &::after {
+      position: absolute;
+      content: '';
+      width: 100%;
+      height: 1px;
+      background: $greenDark;
+      left: 0;
+      bottom: -2px;
+      z-index: -1;
+      transform: scaleX(0);
+      transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+    }
+
+    &:hover::after {
+      transform: scaleX(1);
+    }
   }
 }
 

@@ -1,7 +1,9 @@
 <template>
-  <section id="roadmap" class="ourRoadmap">
-    <div class="ourRoadmap__container grid">
-      <h2 class="ourRoadmap__header fs--56 fw--400 lh--140 o--0 fc--white ff--karla">My Journey</h2>
+  <section id="roadmap" class="ourRoadmap pos--rel">
+    <Blob class="ourRoadmap__blob pos--abs" />
+
+    <div class="ourRoadmap__container grid z--1">
+      <h2 class="ourRoadmap__header fs--56 fw--400 lh--140 o--0 fc--black ff--karla">My <span>Journey</span></h2>
       <div v-if="slider" class="ourRoadmap__buttons grid grid--flow-c gap--16 16px alignS--start justifyC--start o--0">
         <button
           :class="{ 'ourRoadmap__button--disabled': current === 0 }"
@@ -24,11 +26,11 @@
             class="sliderRoadmap__slide keen-slider__slide pos--rel flex justifyC--center"
             :class="{ 'sliderRoadmap__slide--inactive': !item.active }">
             <div class="sliderRoadmap__slideContents pos--rel">
-              <h3 class="sliderRoadmap__slideTitle fs--20 fw--400 fc--white">{{ item.title }}</h3>
-              <h3 class="sliderRoadmap__slideHeading fs--18 fw--300 fc--white">{{ item.heading }}</h3>
+              <h3 class="sliderRoadmap__slideTitle fs--20 fw--400 fc--black">{{ item.title }}</h3>
+              <h3 class="sliderRoadmap__slideHeading fs--18 fw--300 fc--black">{{ item.heading }}</h3>
 
               <ul class="sliderRoadmap__slideList">
-                <li v-for="(el, j) in item.items" :key="el + j" class="fs--16 lh--180 fw--400 fc--white">
+                <li v-for="(el, j) in item.items" :key="el + j" class="fs--16 lh--180 fw--400 fc--black">
                   {{ el }}
                 </li>
               </ul>
@@ -53,13 +55,15 @@ import KeenSlider from 'keen-slider'
 import { inview } from '~/mixins/inview.js'
 import IconPrev from '~/assets/svgs/interface/prev.svg?inline'
 import IconNext from '~/assets/svgs/interface/next.svg?inline'
+import Blob from '~/assets/svgs/blob.svg?inline'
 
 export default {
   name: 'OurRoadmap',
   mixins: [inview],
   components: {
     IconPrev,
-    IconNext
+    IconNext,
+    Blob
   },
   data() {
     return {
@@ -166,12 +170,22 @@ export default {
 
 <style lang="scss">
 .ourRoadmap {
-  padding: 0 0 204px;
+  padding: 82px 0 148px;
 
   &__container {
     grid-template:
       'header carousel' auto
       'buttons carousel' 1fr / auto 1fr;
+  }
+
+  &__blob {
+    fill: $green;
+    z-index: -1;
+    left: -4%;
+    bottom: 0;
+    max-width: 200px;
+    width: 50%;
+    transform: scaleX(-1);
   }
 
   &__header,
@@ -188,6 +202,10 @@ export default {
     height: max-content;
     font-size: 56px;
     font-size: $karla;
+
+    span {
+      color: $orange;
+    }
   }
 
   &__buttons {
@@ -200,7 +218,7 @@ export default {
     border-radius: 50%;
     width: 51px;
     height: 51px;
-    background: linear-gradient(45deg, #99e2b4, #469d89);
+    background: linear-gradient(45deg, var(--orange), var(--red));
     cursor: pointer;
     transition-delay: 0.6s;
 
@@ -214,6 +232,21 @@ export default {
       border-radius: 50%;
       background: var(--bg);
       z-index: -1;
+      transition: background 0.3s ease;
+    }
+
+    svg {
+      fill: $orange;
+      transition: fill 0.3s ease;
+    }
+
+    &:hover {
+      &::before {
+        background: $orange;
+      }
+      svg {
+        fill: $white;
+      }
     }
   }
 
@@ -249,7 +282,7 @@ export default {
 // 750
 @include breakpoint(m) {
   .ourRoadmap {
-    padding: 0 0 96px;
+    padding: 80px 0 96px;
 
     &__container {
       grid-template:
@@ -267,17 +300,6 @@ export default {
 }
 
 .sliderRoadmap {
-  // &::before {
-  // 	content: '';
-  // 	position: absolute;
-  // 	top: 0;
-  // 	left: 0;
-  // 	width: 100px;
-  // 	height: 100%;
-  // 	background: linear-gradient(90deg, var(--blueDarker), transparent);
-  // 	z-index: 1;
-  // }
-
   &__slider {
     overflow: hidden;
     -webkit-user-select: none;
@@ -526,8 +548,16 @@ export default {
 
 // 750
 @include breakpoint(m) {
+  .ourRoadmap {
+    &__blob {
+      left: unset;
+      right: -10%;
+      bottom: -10%;
+      height: 150px;
+    }
+  }
   .sliderRoadmap {
-    padding: 0 32px;
+    padding: 0 0 32px;
     width: 100%;
 
     &::before {
@@ -597,6 +627,25 @@ export default {
         height: calc(100% - 32px);
         width: 2px !important;
       }
+    }
+  }
+}
+
+// 600
+@include breakpoint(s) {
+  .ourRoadmap {
+    &__blob {
+      right: -15%;
+    }
+  }
+}
+
+// 500
+@include breakpoint(xs) {
+  .ourRoadmap {
+    &__blob {
+      bottom: -5%;
+      right: -20%;
     }
   }
 }

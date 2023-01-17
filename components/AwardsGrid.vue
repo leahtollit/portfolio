@@ -2,8 +2,8 @@
   <section class="awardGrid pos--rel z--2">
     <div class="awardGrid__container container flex pos--rel flex--dir-c z--2">
       <div class="awardGrid__headerHolder flex flex--dir-c">
-        <p class="awardGrid__heading ff--karla fw--600 fs--24 fc--white pos--rel">Certifications</p>
-        <p class="awardGrid__header ff--inconsolata fs--35 fw--900 fc--white">
+        <p class="awardGrid__heading ff--karla fw--600 fs--24 fc--black pos--rel">Certifications</p>
+        <p class="awardGrid__header ff--inconsolata fs--35 fw--900 fc--black">
           I like to continually develop my understanding of my field, utilising online platforms such as LinkedIn
           Learning and Udemy to further enhance my skillset.
         </p>
@@ -16,8 +16,8 @@
                 <img class="awardGrid__img pos--abs" :src="el.image" alt="" />
               </div>
               <div class="awardGrid__copyHolder flex flex--dir-c">
-                <p class="awardGrid__title ff--archivo fw--600 fs--24 fc--white pos--rel">{{ el.title }}</p>
-                <p class="awardGrid__text ff--archivo fw--400 fs--16 fc--white pos--rel o--8">
+                <p class="awardGrid__title ff--archivo fw--600 fs--24 fc--black pos--rel">{{ el.title }}</p>
+                <p class="awardGrid__text ff--archivo fw--400 fs--16 fc--black pos--rel o--8">
                   {{ el.text }}
                 </p>
               </div>
@@ -26,15 +26,20 @@
         </div>
       </div>
     </div>
+    <Blob class="awardGrid__blob pos--abs" />
   </section>
 </template>
 
 <script>
 import { inview } from '~/mixins/inview.js'
+import Blob from '~/assets/svgs/blob.svg?inline'
 
 export default {
   name: 'awardGrid',
   mixins: [inview],
+  components: {
+    Blob
+  },
   props: {
     label: {
       type: String,
@@ -91,8 +96,18 @@ export default {
     transition: transform 0.5s, opacity 0.5s;
   }
 
+  &__blob {
+    fill: $orange;
+    z-index: -1;
+    right: -15%;
+    top: -10%;
+    max-width: 400px;
+    width: 50%;
+    transform: scaleX(-1);
+  }
+
   &__heading {
-    font-size: 24px;
+    font-size: 35px;
     font-family: $karla;
     margin-bottom: 46px;
     padding-left: 56px;
@@ -106,7 +121,7 @@ export default {
       display: inline-block;
       left: 0;
       top: 50%;
-      background: $white;
+      background: $green;
       height: 3px;
       width: 29px;
     }
@@ -121,7 +136,7 @@ export default {
     max-width: 703px;
     width: 100%;
     line-height: 46px;
-    font-size: 28px;
+    font-size: 24px;
     transition-delay: 0.6s;
     font-family: $inconsolata;
   }
@@ -208,24 +223,6 @@ export default {
     font-family: $inconsolata;
   }
 
-  &__bg {
-    bottom: -49%;
-    width: 100%;
-
-    &--mobile {
-      display: none;
-    }
-  }
-
-  &__mobileBg {
-    width: 100%;
-    height: 100%;
-    background: $blue;
-    left: 0;
-    bottom: 0;
-    display: none;
-  }
-
   &.is-inview {
     .awardGrid__header,
     .awardGrid__heading {
@@ -284,6 +281,10 @@ export default {
       font-size: 22px;
     }
 
+    &__blob {
+      max-width: 300px;
+    }
+
     &__body {
       width: calc(50% - 63px);
       margin-right: 63px;
@@ -314,6 +315,14 @@ export default {
         width: 100%;
       }
     }
+
+    &__blob {
+      top: unset;
+      right: unset;
+      left: -10%;
+      bottom: -15%;
+      max-width: 200px;
+    }
   }
 }
 
@@ -333,17 +342,17 @@ export default {
     }
     &__heading {
       margin-bottom: 32px;
-      color: $white;
+      color: $black;
 
       &::before {
-        background: $white;
+        background: $black;
       }
     }
 
     &__header {
       font-size: 24px;
       line-height: 32px;
-      color: $white;
+      color: $black;
     }
 
     &__headerHolder {
@@ -411,6 +420,10 @@ export default {
     &__copyHolder {
       max-width: 327px;
     }
+
+    &__blob {
+      left: -20%;
+    }
   }
 }
 
@@ -423,10 +436,9 @@ export default {
       max-width: 100%;
     }
 
-    &__bg {
-      &--mobile {
-        top: -12%;
-      }
+    &__blob {
+      width: 150px;
+      bottom: -20%;
     }
   }
 }

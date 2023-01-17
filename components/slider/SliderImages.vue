@@ -1,5 +1,5 @@
 <template>
-  <div class="sliderImages pos--rel">
+  <div class="sliderImages pos--rel z--1">
     <div ref="slider" class="sliderImages__slider keen-slider pos--rel">
       <div v-for="(slide, i) in slides" :key="slide + i" class="sliderImages__slide keen-slider__slide">
         <div class="sliderImages__wrap grid alignI--end pos--rel">
@@ -143,7 +143,7 @@ export default {
     left: 0;
     width: 300px;
     height: 100%;
-    background: linear-gradient(90deg, var(--blueDarker), transparent);
+    background: linear-gradient(90deg, var(--white), transparent);
     z-index: 1;
     pointer-events: none;
   }
@@ -155,7 +155,7 @@ export default {
   &::after {
     right: 0;
     left: auto;
-    background: linear-gradient(90deg, transparent, var(--blueDarker));
+    background: linear-gradient(90deg, transparent, var(--white));
   }
 
   &__slider {
@@ -170,7 +170,6 @@ export default {
 
   &__slide {
     &:hover {
-      cursor: pointer;
       .sliderImages__logo {
         opacity: 0;
       }
@@ -215,7 +214,7 @@ export default {
 
   &__button {
     bottom: 50%;
-    border: 1px solid rgba(white, 0.5);
+    border: 1px solid rgba($red, 0.5);
     border-radius: 50%;
     width: 51px;
     height: 51px;
@@ -225,8 +224,12 @@ export default {
     transition: border 0.3s, background 0.3s;
 
     &:hover {
-      border-color: white;
+      border-color: $red;
       background: rgba(white, 0.125);
+    }
+
+    svg {
+      fill: $red;
     }
 
     &--prev {
@@ -267,6 +270,9 @@ export default {
 
       &--next {
         right: 32px;
+      }
+      svg {
+        fill: $red;
       }
     }
   }

@@ -1,5 +1,5 @@
 // fixed values
-$bg: #112240;
+$bg: #fffbf8;
 $black: #131319;
 $white: #fff;
 
@@ -10,16 +10,16 @@ $greyLight: #8e8e91;
 $greyLighter: #d4d4d8;
 $greyLightest: #e2e2e6;
 
-$orange: #ffa700;
+$orange: #e45100;
 $orangeDark: #d88e01;
 $blue: #0062ff;
 $blueDark: #004bc4;
 $purple: #c152fc;
 $purpleDark: #9b46c9;
-$green: #64ffda;
-$lightGreen: #edf6f9;
-$greenDark: #18ac78;
-$red: #ff3030;
+$green: #56babc;
+$lightGreen: #bffcfc;
+$greenDark: #458081;
+$red: #f33a31;
 $redDark: #d62828;
 
 $blueDark: #1F1E4E;
@@ -74,7 +74,8 @@ $success: $green;
 
 $fontcolors: (
   'black': var(--black),
-  'white': $white
+  'white': $white,
+  'green': $green
 );
 
 $bgcolors: (

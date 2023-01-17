@@ -38,10 +38,10 @@ export default {
   display: block;
   width: 32px;
   height: 32px;
-  border: 3px solid rgba(var(--rgb-black), 0.2);
+  border: 3px solid rgba(var(--rgb-white), 0.2);
   border-radius: 50%;
   margin: 0 auto;
-  border-top-color: var(--black);
+  border-top-color: var(--white);
   animation: spin 1s ease-in-out infinite;
 
   // sizes

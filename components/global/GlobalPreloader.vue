@@ -22,7 +22,7 @@ export default {
 
 <style lang="scss">
 .globalPreloader {
-  background: var(--white);
+  background: var(--green);
   pointer-events: none;
   transition: opacity 0.3s ease, visibility 0.3s ease, background 0.3s ease;
 

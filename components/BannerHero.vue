@@ -1,8 +1,9 @@
 <template>
   <section class="bannerHero pos--rel flex alignI--end">
-    <div class="bannerHero__container container flex pos--rel flex--dir-c flex--nowrap justifyC--end alignI--start">
+    <div
+      class="bannerHero__container container flex pos--rel flex--dir-c flex--nowrap justifyC--end alignI--start z--1">
       <h1 class="bannerHero__header flex flex--dir-c"><span>Leah Tollit</span><span>web dev</span></h1>
-      <p class="bannerHero__text fs--20 fw--400 fc--white o--8 ff--karla">
+      <p class="bannerHero__text fs--20 fw--400 fc--black o--8 ff--karla">
         I am a Manchester-based Front End Developer. I am a hardworking, passionate, and innovative individual who is
         always up for a challenge.
       </p>
@@ -16,15 +17,20 @@
       </div>
     </div>
     <SideContact />
+    <Flower class="bannerHero__flower pos--abs" />
   </section>
 </template>
 
 <script>
 import { inview } from '~/mixins/inview.js'
+import Flower from '~/assets/svgs/flower.svg?inline'
 
 export default {
   name: 'BannerHero',
   mixins: [inview],
+  components: {
+    Flower
+  },
   props: {
     label: {
       type: String,
@@ -90,7 +96,7 @@ export default {
 
     span {
       &:nth-child(1) {
-        color: $white;
+        color: $green;
         font-weight: 800;
         font-size: 40px;
         line-height: 53px;
@@ -100,7 +106,7 @@ export default {
         transition-delay: 2s;
       }
       &:nth-last-child(1) {
-        color: $green;
+        color: $black;
         font-weight: 900;
         font-size: 80px;
         line-height: 70px;
@@ -138,6 +144,27 @@ export default {
       opacity: 1;
     }
   }
+
+  &__flower {
+    fill: $red;
+    z-index: 0;
+    right: 0;
+    right: -9%;
+    top: 5%;
+    max-width: 750px;
+    width: 50%;
+  }
+}
+
+//----------------------------------------//
+
+// 1200
+@include breakpoint(xxl) {
+  .bannerHero {
+    &__flower {
+      width: 600px;
+    }
+  }
 }
 
 //----------------------------------------//
@@ -147,6 +174,11 @@ export default {
   .bannerHero {
     &__text {
       font-size: 18px;
+    }
+
+    &__flower {
+      width: 550px;
+      /* bottom: -25%; */
     }
 
     &__header {
@@ -162,6 +194,17 @@ export default {
   }
 }
 
+//----------------------------------------//
+
+// 960
+@include breakpoint(l) {
+  .bannerHero {
+    &__flower {
+      width: 500px;
+      top: -8%;
+    }
+  }
+}
 //----------------------------------------//
 
 // 750
@@ -182,6 +225,11 @@ export default {
     &__text {
       max-width: 450px;
     }
+
+    &__flower {
+      width: 400px;
+      top: -10%;
+    }
   }
 }
 
@@ -192,6 +240,9 @@ export default {
   .bannerHero {
     &__container {
       padding-bottom: 32px;
+    }
+    &__flower {
+      width: 400px;
     }
     &__header {
       max-width: 100%;
@@ -220,6 +271,18 @@ export default {
       font-size: 16px;
       line-height: 28px;
       margin-bottom: 54px;
+    }
+  }
+}
+
+//----------------------------------------//
+
+// 400
+@include breakpoint(xxs) {
+  .bannerHero {
+    &__flower {
+      width: 100%;
+      top: -15%;
     }
   }
 }

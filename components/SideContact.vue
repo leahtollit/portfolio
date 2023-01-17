@@ -1,7 +1,7 @@
 <template>
   <div class="sideContact">
     <div class="sideContact__holder flex flex--dir-c alignI--center">
-      <a class="sideContact__copy fc--green" href="mailto:leahtollit@gmail.com">leahtollit@gmail.com</a>
+      <a class="sideContact__copy fc--white" href="mailto:leahtollit@gmail.com">leahtollit@gmail.com</a>
     </div>
   </div>
 </template>
@@ -39,10 +39,10 @@ export default {
   &::after {
     content: '';
     display: block;
-    width: 2px;
+    width: 1px;
     height: 90px;
     margin: 0px auto;
-    background-color: $white;
+    background-color: $black;
     opacity: 0.7;
   }
 
@@ -55,11 +55,10 @@ export default {
     writing-mode: vertical-rl;
     transition: all 0.3s ease;
     font-family: $karla;
-    color: white;
+    color: $white;
     opacity: 0.7;
 
     &:hover {
-      color: $green;
       transform: translateY(-3px);
       opacity: 1;
     }

@@ -1,9 +1,10 @@
 <template>
   <main class="theContent">
     <BannerHero id="intro" />
-    <PhotographyCarousel id="hobbies" />
-    <AwardsGrid id="awards" />
+    <MyWork id="work" />
     <OurRoadmap id="experience" />
+    <AwardsGrid id="certifications" />
+    <PhotographyCarousel id="hobbies" />
   </main>
 </template>
 

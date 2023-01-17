@@ -31,28 +31,43 @@ export default {
 <style lang="scss">
 .baseBtn {
   // border: 1px solid white;
-  padding: 14px 32px;
+  padding: 12px 32px;
   border-radius: 100px;
   background: transparent;
-  border: 1px solid $white;
+  border: 1px solid $red;
   transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
 
   &__label {
     transition: color 0.3s ease;
-    color: white;
+    color: $red;
     font-family: $karla;
   }
 
   &:hover {
-    background: $green;
+    background: $red;
 
     .baseBtn__label {
-      color: $black;
+      color: $white;
     }
   }
 
   &:hover {
     cursor: pointer;
+  }
+
+  &--green {
+    border: 1px solid $greenDark;
+
+    .baseBtn__label {
+      color: $greenDark;
+    }
+
+    &:hover {
+      background: $greenDark;
+      .baseBtn__label {
+        color: $white;
+      }
+    }
   }
 }
 
