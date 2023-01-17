@@ -10,7 +10,7 @@
           </li>
           <li class="globalHeader__navItem">
             <a class="globalHeader__navLink" href="" @click.prevent="scrollToElement('#experience')"
-              >02. <span>Experience</span></a
+              >02. <span>Journey</span></a
             >
           </li>
           <li class="globalHeader__navItem">
